@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- 8
+- 9
+notifications:
+  email: false
+  webhooks:
+    urls:
+    - https://webhooks.gitter.im/e/54f8a1e753f859f5ca1a
+    on_start: never
+    on_failure: change
+deploy:
+  provider: npm
+  email: jimmy.aumard@gmail.com
+  api_key:
+    secure: SCXojHaxwk5ichvXyjpTr8XHkHCQEdYsSVfrnl+qPJWdlATagguXcwpcY5CX4fbNtUjroE9x4pMsHJt8AZB3lbbeviytzel+BZfPCbkS+a3xYst3Ms+Ysn6qt4HjwnsPVV2h0j/qaw9LMoJlE3yLgnXNYG0K+MyYI1uH+cVCwPXVwLqczUQ4D7XRG8SnFCDnk+t9izBVol2/fzPh4Uyu8Q6EikP3H7iPbRxmtQPXxrVIk3mxNZ6Leq58Dt/mHCHp5gGqU79PhxeWtS7ErbcEHXJkq2sx+0ZjAfD/SdfvSNxkuAJXa4/rKVmVsCxLFNFWb6JSi+8GPfvRsA3Mli11emeF+JCTb/wTsY9dGQJ72HWOAr0DI2RyyFXNHwrpqOmlN740jq8YPeGkASf9mUI2SZ1aL0UJGsK32dLlh/R03EVMDg+NCD6+CNbd041ZYv3hbF+vltWlkcw5vIPklG3/hi0KCTakgVrwnCLhyPNX6iWI2tzE6jwJmftZP6Np3jdEoTXgN1iW6bdijiZCrE4kTYCisilbrpUefL86vfZV/NpVJeTJpno5LIMYbTt9OrwFlZDlGd6plmzQ5ENcgSlNTwfHg22d3JIGoSWEQJTjys0YnlJnssDkjABd/6vHUCu/AYWX8dBnT9LCoL6vFiePAFc+OKJCYUBdOjXfnQLfCLQ=
+  on:
+    tags: true
+    repo: jaumard/trailpack-design-first
+    node: 8
