@@ -8,15 +8,15 @@ module.exports = class DesignFirstTrailpack extends Trailpack {
    */
   validate() {
     return Util.parseSwaggerDefinition(this.app.config.swagger.swaggerDefinition)
-      .then(definition => this.definition = definition)
+      .then(definition => this.definitions = definition)
   }
 
   /**
    *
    */
   configure() {
-    Util.setupSwaggerExposition(this.app)
-    Util.setupApiFromDefinition(this.definition, this.app)
+    Util.setupSwaggerExposition(this.definitions, this.app)
+    Util.setupApiFromDefinitions(this.definitions, this.app)
   }
 
   constructor(app) {

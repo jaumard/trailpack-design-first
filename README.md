@@ -34,14 +34,14 @@ module.exports = {
 ```js
 // config/swagger.js
 module.exports = {
-  swaggerDefinition: './swagger/definition.yaml',
+  swaggerDefinition: './swagger/definition.yaml', // or an array of swagger definition
   swaggerUi: './swagger/ui',
   swaggerDefinitionHttpPath: '/swagger',
   swaggerUiHttpPath: '/swagger-ui'
 
 }
 ```
-`swaggerDefinition`: path to your yaml or json definition file
+`swaggerDefinition`: path to your yaml or json definition file, also can be an array of swagger definition
 
 `swaggerUi`: path to your swagger ui files (download them from [swagger-ui](https://github.com/swagger-api/swagger-ui) and put the dist content).
 
@@ -53,7 +53,13 @@ module.exports = {
 Just create your swagger definition like you do normally, the only difference is that for each `operationId` you should put the name and method 
 of the controller that will implement this functionality (`UserController.getProfile` for example).
 
+Another solution if you don't want to have the controller name inside the `operationId` is to add `x-swagger-router-controller` at route or operation level with the name of your controller
+
+If you want to apply some policies to your operation you can use `x-swagger-router-policies` (eg `PermissionPolicy.check,MyPolicy.func`).
+
 The trailpack will create the route and validation of headers/query/params and body for you.
+
+Put `x-swagger-router-policies` on your security definitions to let the trailpack map the security policies for you
 
 ## Contributing
 We love contributions! Please check out our [Contributor's Guide](https://github.com/trailsjs/trails/blob/master/.github/CONTRIBUTING.md) for more

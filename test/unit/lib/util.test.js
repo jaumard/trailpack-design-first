@@ -26,6 +26,11 @@ describe('lib.Util', () => {
       return lib.Util.parseSwaggerDefinition(__dirname + '/../../swagger/info.yaml')
     })
 
+    it('Should validate a swagger files', () => {
+      return lib.Util.parseSwaggerDefinition([__dirname + '/../../swagger/info.yaml',
+        __dirname + '/../../swagger/default.json'])
+    })
+
     it('Should not validate a wrong swagger file', done => {
       lib.Util.parseSwaggerDefinition(__dirname + '/../../swagger/wrong.yaml')
         .then(api => {
@@ -58,8 +63,24 @@ describe('lib.Util', () => {
 
   describe('setupApiFromDefinition', () => {
     it('Should add routes from definition', () => {
-      return lib.Util.setupApiFromDefinition(definition,
-        { config: { routes: [] } })
+      const myApp = { config: { routes: [], policies: {} } }
+      return lib.Util.setupApiFromDefinition(definition, myApp)
+        .then(_ => {
+          assert.equal(5, myApp.config.routes.length)
+          assert.equal('PetController.addPet', myApp.config.routes[0].handler)
+        })
+    })
+
+    it('Should add policies from definition', () => {
+      const myApp = { config: { routes: [], policies: {} } }
+      return lib.Util.setupApiFromDefinition(definition, myApp)
+        .then(_ => {
+          assert.equal(1, myApp.config.policies.PetController.addPet.length)
+          assert.equal('PassportPolicy.jwt', myApp.config.policies.PetController.addPet[0])
+          assert.equal(2, myApp.config.policies.PetController.updatePet.length)
+          assert.equal('PassportPolicy.jwt', myApp.config.policies.PetController.updatePet[0])
+          assert.equal('PassportPolicy.bearer', myApp.config.policies.PetController.updatePet[1])
+        })
     })
   })
 
