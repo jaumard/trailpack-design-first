@@ -45,7 +45,7 @@ module.exports = {
 
 `swaggerUi`: path to your swagger ui files (download them from [swagger-ui](https://github.com/swagger-api/swagger-ui) and put the dist content).
 
-`swaggerDefinitionHttpPath`: path where to access the swagger definition from the web (eg http://localhost:3000/swagger)
+`swaggerDefinitionHttpPath`: path where to access the swagger definition from the web (eg http://localhost:3000/swagger/{filename})
 
 `swaggerUiHttpPath`: path where to access the swagger ui interface from the web (eg http://localhost:3000/swagger/ui)
 

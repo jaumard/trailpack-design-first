@@ -126,7 +126,7 @@ describe('Trailpack', () => {
   describe('swagger http exposition', () => {
     it('should expose swagger definition files on /swagger', done => {
       request
-        .get('/swagger')
+        .get('/swagger/info.yaml')
         .expect(200)
         .end((err, res) => {
           done(err)

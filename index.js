@@ -15,7 +15,8 @@ module.exports = class DesignFirstTrailpack extends Trailpack {
    *
    */
   configure() {
-    Util.setupSwaggerExposition(this.definitions, this.app)
+    //TODO dereference swagger def here before setup
+    Util.setupSwaggerExposition(this.app)
     Util.setupApiFromDefinitions(this.definitions, this.app)
   }
 

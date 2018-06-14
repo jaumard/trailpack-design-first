@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "joi": "^13.1.1",
-    "swagger-parser": "^4.0.2",
+    "swagger-parser": "^4.1.0",
     "trailpack": "^2.1.3"
   },
   "devDependencies": {

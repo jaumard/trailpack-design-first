@@ -113,7 +113,7 @@ module.exports = _.defaultsDeep({
   },
   config: {
     swagger: {
-      swaggerDefinition: './test/swagger/info.yaml',
+      swaggerDefinition: ['./test/swagger/info.yaml'],
       swaggerUi: './test/swagger-ui/'
     },
     main: {
